@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-restfull-api",
+  "version": "1.0.0",
+  "description": "Simple RESTful API With NodeJs, ExpressJs And MongoDb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrhunSozer/nodejs-restfull-api.git"
+  },
+  "keywords": [
+    "mongodb",
+    "expressjs",
+    "nodejs"
+  ],
+  "author": "Orhun Sözer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OrhunSozer/nodejs-restfull-api/issues"
+  },
+  "homepage": "https://github.com/OrhunSozer/nodejs-restfull-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7"
+  }
+}
