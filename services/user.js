@@ -1,5 +1,5 @@
 UserModel = require('../models/user');
-
+const Api404Error = require('../errors/Api404Error');
 
 exports.index = function (req, res) {
     UserModel.get(function (err, users) {
@@ -57,11 +57,17 @@ exports.view = function (req, res) {
 
 
 exports.update = function (req, res) {
+
     UserModel.findById(req.params.user_id, function (err, user) {
         if (err){
             res.send(err);
         }
             
+        console.log(user);
+
+        if (user === undefined) {
+            throw new Api404Error(`Kullanıcı: ${req.params.user_id} bulunamadı.`);
+        }
             
         user.name = req.body.name ? req.body.name : user.name;
         user.surname = req.body.surname ? req.body.surname : user.surname;
@@ -78,6 +84,7 @@ exports.update = function (req, res) {
             });
         });
     });
+    
 };
 
 
