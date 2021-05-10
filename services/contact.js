@@ -1,4 +1,3 @@
-// contactController.js
 // Import contact model
 Contact = require('../models/contact');
 // Handle index actions
@@ -25,14 +24,13 @@ exports.new = function (req, res) {
     contact.email = req.body.email;
     contact.phone = req.body.phone;
 // save the contact and check for errors
-    contact.save(function (err) {
-        // if (err)
-        //     res.json(err);
-res.json({
-            message: 'New contact created!',
-            data: contact
-        });
-    });
+    contact
+    .save()
+    .then((data)=>res.json({
+        message: 'New contact created!',
+        data: data
+    }))
+    .catch((err) =>{throw Error(err)});
 };
 // Handle view contact info
 exports.view = function (req, res) {
